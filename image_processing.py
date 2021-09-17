@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ### Модуль проверки пикселей в изображении ###
 # Загрузка модуля для работы с изображениями
 from PIL import Image
@@ -20,7 +21,7 @@ def ImageProcessing(img_file):
         code_black = 0
         code_white = 255
     else:
-        return 'Цветовая схема неопределена'
+        return u'Цветовая схема неопределена'
     # Выполняю проход по всем пикселям
     for i in range(0, x):
         for j in range(0, y):
@@ -34,11 +35,11 @@ def ImageProcessing(img_file):
     res_message = ''
     # Провожу сравнение результатов
     if count_black > count_white:
-         res_message = 'Черных пикселей больше, чем белых. Кол-во черных равно {}, кол-во белых равно {}'.format(count_black, count_white)
+         res_message = u'Черных пикселей больше, чем белых. Кол-во черных равно {}, кол-во белых равно {}'.format(count_black, count_white)
     else:
         if count_black != count_white:
-            res_message = 'Белых пикселей больше, чем черных. Кол-во белых равно {}, кол-во черных равно {}'.format(count_white, count_black)
+            res_message = u'Белых пикселей больше, чем черных. Кол-во белых равно {}, кол-во черных равно {}'.format(count_white, count_black)
         else:
-            res_message = 'Белых и черных пикселей одинаковое количество. Кол-во и белых и черных равно {}'.format(count_black)
+            res_message = u'Белых и черных пикселей одинаковое количество. Кол-во и белых и черных равно {}'.format(count_black)
 
     return res_message

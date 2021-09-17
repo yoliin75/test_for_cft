@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Загрузка модуля по работе с веб-сервером
 from flask import Flask, render_template, request
 import os
@@ -36,7 +37,7 @@ def WebStart():
                 res_message = ImageProcessing(os.path.realpath(photo_path))
                 pass
             else:
-                err_message = 'Ошибка загрузки. Некорректное изображение'
+                err_message = u'Ошибка загрузки. Некорректное изображение'
         return render_template('upload.html', err_message = err_message, res_message = res_message)
     # Запуск веб-сервера с указанными параметрами
     app.run(host='0.0.0.0', port=8000)
