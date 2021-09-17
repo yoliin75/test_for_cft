@@ -12,23 +12,33 @@ def ImageProcessing(img_file):
     # Объявляю счетчики для пикселей
     count_black = 0
     count_white = 0
+    # Проверяю на RGB
+    if isinstance(pix[0,0], tuple):
+        code_black = (0, 0, 0)
+        code_white = (255, 255, 255)
+    elif isinstance(pix[0,0], int):
+        code_black = 0
+        code_white = 255
+    else:
+        return 'Цветовая схема неопределена'
     # Выполняю проход по всем пикселям
     for i in range(0, x):
         for j in range(0, y):
             # Пиксел с кодом 0x00 соответствует черному цвету
-            if pix[i,j] == 0:
+            if pix[i,j] == code_black:
                 count_black += 1
             # Пиксел с кодом 0xFF соответствует белому цвету
-            if pix[i,j] == 255:
+            if pix[i,j] == code_white:
                 count_white += 1
     # Объявляю переменную для вывода результата
     res_message = ''
     # Провожу сравнение результатов
     if count_black > count_white:
-         res_message = 'Черных пикселей больше, чем белых. Кол-во черных равно {}'.format(count_black)
+         res_message = 'Черных пикселей больше, чем белых. Кол-во черных равно {}, кол-во белых равно {}'.format(count_black, count_white)
     else:
         if count_black != count_white:
-            res_message = 'Белых пикселей больше, чем черных. Кол-во белых равно {}'.format(count_white)
+            res_message = 'Белых пикселей больше, чем черных. Кол-во белых равно {}, кол-во черных равно {}'.format(count_white, count_black)
         else:
             res_message = 'Белых и черных пикселей одинаковое количество. Кол-во и белых и черных равно {}'.format(count_black)
+
     return res_message

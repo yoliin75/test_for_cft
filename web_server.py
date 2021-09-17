@@ -8,12 +8,7 @@ def WebStart():
     # Объявляю класс сервера
     app = Flask('__name__')
     # Определяю полный путь к каталогу веб-сервера
-    #app_path = os.path.dirname(os.path.abspath(__name__))
-    #app_path = os.path.dirname(os.path.realpath(__file__))
-    #app_path = os.getcwd()
-    #print(app_path)
     app_path = os.path.dirname(__file__)
-    #print(os.path.realpath(__file__))
     # Определяю полный путь до файла с изображением для обработки
     photo_path = os.path.join(app_path, '/static/photo.jpg')
 
@@ -38,12 +33,10 @@ def WebStart():
             if (fd.mimetype == 'image/jpeg'):
                 # Сохранение изображения в спец каталог с перезаписью предыдущего файла
                 fd.save(photo_path)
-                #res_message = ImageProcessing('C:/WBuild/CFT/TestJob/ImageProcessing/static/photo.jpg')
                 res_message = ImageProcessing(os.path.realpath(photo_path))
-                #res_message='sdfsd'
                 pass
             else:
                 err_message = 'Ошибка загрузки. Некорректное изображение'
         return render_template('upload.html', err_message = err_message, res_message = res_message)
     # Запуск веб-сервера с указанными параметрами
-    app.run(host='localhost', port=8000)
+    app.run(host='0.0.0.0', port=8000)

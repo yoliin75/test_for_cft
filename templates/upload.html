@@ -1,9 +1,10 @@
 <html>
     <body>
-        <H1>{{err_message}}</H1>
+        <H1>Обработка озображения</H1>
+        <H2>{{err_message}}</H2>
         <img src="static/photo.jpg" height="15%" width="15%"  alt="No photo"/>
-         <H1>{{res_message}}</H1>
-        <form action="http://localhost:8000" method="POST" enctype="multipart/form-data">
+         <H2>{{res_message}}</H2>
+        <form action="/" method="POST" enctype="multipart/form-data">
             <input type="submit" value="Вернуться назад" />
         </form>
     </body>
