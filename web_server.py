@@ -7,7 +7,7 @@ from image_processing import ImageProcessing
 # Функция запуска веб-сервера и веб-формы
 def WebStart():
     # Объявляю класс сервера
-    app = Flask('__name__')
+    app = Flask('__name__', template_folder='templates', static_folder='static')
     # Определяю полный путь к каталогу веб-сервера
     app_path = os.path.dirname(__file__)
     # Определяю полный путь до файла с изображением для обработки
